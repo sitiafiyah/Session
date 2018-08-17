@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#355989"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:text="SITI AFIYAH" />
+
+        <TextView
+            android:id="@+id/address_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_textview"
+            android:layout_marginTop="20dp"
+            android:textColor="#4a4a4a"
+            android:textSize="18dp"
+            tools:text="JL. SUDIRMAN BARU" />
+
+        <TextView
+            android:id="@+id/start_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address_textview"
+            android:layout_marginTop="20dp"
+            android:textColor="#4a4a4a"
+            android:textSize="15dp"
+            tools:text="Selasa, 10 Jan 2018" />
+
+        <TextView
+            android:id="@+id/finishdate_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/start_textview"
+            android:layout_marginTop="20dp"
+            android:background="#ebf3ff"
+            android:textColor="#f07e01"
+            android:textSize="15dp"
+            tools:text="Selesai pada 12 Jan 2018" />
+
+        <TextView
+            android:id="@+id/customerid_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="#9f005c9c"
+            android:textSize="15dp"
+            tools:text="#0255548910" />
+
+        <TextView
+            android:id="@+id/idtask_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/start_textview"
+            android:background="#01aef0"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            tools:text="4371" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
