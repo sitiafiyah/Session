@@ -1,79 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/logo_pgn" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
-        <LinearLayout
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:src="@drawable/ic_person" />
-
-            <EditText
-                android:id="@+id/username_edittext"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="NAMA" />
-
-        </LinearLayout>
+            android:layout_height="200dp"
+            android:src="@drawable/logo_pgn" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:src="@drawable/ic_vpn_key" />
-
-            <EditText
-                android:id="@+id/password_edittext"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
-                android:hint="KATA SANDI"
-                android:inputType="textPassword" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/ic_person" />
+
+                <EditText
+                    android:id="@+id/username_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="NAMA" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/ic_vpn_key" />
+
+                <EditText
+                    android:id="@+id/password_edittext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="KATA SANDI"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#355989"
+                android:text="LOGIN" />
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#355989"
-            android:text="LOGIN" />
 
     </LinearLayout>
 
-
-</LinearLayout>
+</ScrollView>

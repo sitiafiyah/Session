@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.siti.asyst.session.R;
@@ -19,9 +18,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
     Context mContext;
     ArrayList<Task> mListTask;
-    AdapterView.OnItemClickListener listener;
+    OnItemClickListener listener;
 
-    public TaskAdapter(Context context, ArrayList<Task> listTask, AdapterView.OnItemClickListener listener) {
+    public TaskAdapter(Context context, ArrayList<Task> listTask, OnItemClickListener listener) {
         this.mContext = context;
         this.mListTask = listTask;
         this.listener = listener;
@@ -49,7 +48,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //listener.onItemClick(task);
+                listener.onItemClick(task);
             }
         });
 
@@ -58,6 +57,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     @Override
     public int getItemCount() {
         return mListTask.size();
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Task task);
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

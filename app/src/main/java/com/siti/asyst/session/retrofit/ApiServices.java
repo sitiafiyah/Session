@@ -1,9 +1,10 @@
 package com.siti.asyst.session.retrofit;
 
+import com.siti.asyst.session.model.Task;
 import com.siti.asyst.session.retrofit.request.LoginRequest;
-import com.siti.asyst.session.retrofit.request.TaskRequest;
 import com.siti.asyst.session.retrofit.response.LoginResponse;
-import com.siti.asyst.session.retrofit.response.TaskResponse;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,6 +18,6 @@ public interface ApiServices {
     //response                  //requesr
 
     @GET("Task/getAllTask")
-    Call<TaskResponse> getTask(@Body TaskRequest taskRequest);
+    Call<ArrayList<Task>> getTask();
 
 }

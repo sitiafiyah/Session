@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (TextUtils.isEmpty(passwordET.getText().toString())) {
                     passwordET.setError("Input Your Password");
                 } else {
-                    //doLogin();
-                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    startActivity(intent);
+                    doLogin();
+                    //Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                    //startActivity(intent);
                 }
                 break;
         }
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
             finish();
         } else {
-            Toast.makeText(getApplicationContext(), "Please Login", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Login First", Toast.LENGTH_SHORT).show();
         }
     }
 
