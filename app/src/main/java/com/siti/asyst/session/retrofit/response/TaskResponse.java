@@ -2,10 +2,12 @@ package com.siti.asyst.session.retrofit.response;
 
 import com.siti.asyst.session.model.Task;
 
+import java.util.ArrayList;
+
 public class TaskResponse {
     String status;
     String message;
-    Task data;
+    ArrayList<Task> data;
 
     public String getStatus() {
         return status;
@@ -23,11 +25,11 @@ public class TaskResponse {
         this.message = message;
     }
 
-    public Task getData() {
+    public ArrayList<Task> getData() {
         return data;
     }
 
-    public void setData(Task data) {
+    public void setData(ArrayList<Task> data) {
         this.data = data;
     }
 }

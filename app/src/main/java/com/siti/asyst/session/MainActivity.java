@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,7 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.siti.asyst.session.model.Login;
-import com.siti.asyst.session.model.User;
 import com.siti.asyst.session.retrofit.ApiClient;
 import com.siti.asyst.session.retrofit.ApiServices;
 import com.siti.asyst.session.retrofit.request.LoginRequest;
@@ -41,16 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         usernameET = findViewById(R.id.username_edittext);
         passwordET = findViewById(R.id.password_edittext);
+        progressBar = findViewById(R.id.progressbar);
 
         loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
 
-        //mengecek apakah kita sudah login apa belum
-//        if (sessionUtil.getLogin()) {
-//            startActivity(new Intent(MainActivity.this, SecondActivity.class)
-//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-//            finish();
-//        }
         checkLogin();
 
     }
@@ -65,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     passwordET.setError("Input Your Password");
                 } else {
                     doLogin();
-                    //Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    //startActivity(intent);
                 }
                 break;
         }
@@ -77,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         password = passwordET.getText().toString();
 
         LoginRequest loginRequest = new LoginRequest();
-        Login login = new Login();
+        final Login login = new Login();
 
         loginRequest.setMethod("getProfileInfo");
         login.setUsername(username);
@@ -90,12 +83,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                progressBar.setVisibility(View.INVISIBLE);
-                if (response.body().getStatus().equalsIgnoreCase("success")) {
-                    User user = new User();
-                    Toast.makeText(getApplicationContext(), "Welcome " + user.getUsername(), Toast.LENGTH_SHORT).show();
+                //progressBar.setVisibility(View.INVISIBLE);
 
-                    sessionUtil.saveLogin(user.getUsername(), user.getStaff_name());
+                if (response.body().getStatus().equalsIgnoreCase("success")) {
+                    //User user = new User();
+                    Log.d("username", "username" + login.getUsername());
+                    Toast.makeText(getApplicationContext(), "Welcome " + login.getUsername(), Toast.LENGTH_SHORT).show();
+
+                    sessionUtil.saveLogin(login.getUsername(), login.getPassword());
                     Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                     startActivity(intent);
                     finish();
@@ -104,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                progressBar.setVisibility(View.INVISIBLE);
+                //progressBar.setVisibility(View.INVISIBLE);
                 Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
@@ -118,8 +113,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
             finish();
-        } else {
-            Toast.makeText(getApplicationContext(), "Login First", Toast.LENGTH_SHORT).show();
         }
     }
 

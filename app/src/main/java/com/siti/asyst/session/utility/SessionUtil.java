@@ -7,7 +7,6 @@ public class SessionUtil {
 
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";
-    public static final String KEY_LOGIN = "login";
 
     Context mContex;
     SharedPreferences preferences;
@@ -35,26 +34,5 @@ public class SessionUtil {
         String password = preferences.getString(KEY_PASSWORD, "");
         return password;
     }
-
-
-//    public void saveUsername(String username) {
-//        editor.putString(KEY_USERNAME, username);
-//        editor.commit();
-//    }
-//
-//    public String loadUsername() {
-//        String username = preferences.getString(KEY_USERNAME, "");
-//        return username;
-//    }
-//
-//    public void savePassword(String password) {
-//        editor.putString(KEY_PASSWORD, password);
-//        editor.commit();
-//    }
-//
-//    public String loadPassword() {
-//        String password = preferences.getString(KEY_PASSWORD, "");
-//        return password;
-//    }
 
 }

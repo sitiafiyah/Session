@@ -1,6 +1,9 @@
 package com.siti.asyst.session.model;
 
-public class Task {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Task implements Parcelable {
 
     String customer_name;
     String customer_address;
@@ -8,6 +11,27 @@ public class Task {
     String finishDate;
     String customer_id;
     String task_id;
+
+    public static final Creator<Task> CREATOR = new Creator<Task>() {
+        @Override
+        public Task createFromParcel(Parcel in) {
+            return new Task(in);
+        }
+
+        @Override
+        public Task[] newArray(int size) {
+            return new Task[size];
+        }
+    };
+
+    protected Task(Parcel in) {
+        customer_name = in.readString();
+        customer_address = in.readString();
+        startDate = in.readString();
+        finishDate = in.readString();
+        customer_id = in.readString();
+        task_id = in.readString();
+    }
 
     public String getCustomer_name() {
         return customer_name;
@@ -57,4 +81,18 @@ public class Task {
         this.task_id = task_id;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(customer_name);
+        dest.writeString(customer_address);
+        dest.writeString(startDate);
+        dest.writeString(finishDate);
+        dest.writeString(customer_id);
+        dest.writeString(task_id);
+    }
 }
