@@ -1,9 +1,11 @@
 package com.siti.asyst.session.retrofit.request;
 
+import com.siti.asyst.session.model.Login;
+
 public class TaskRequest {
 
     String method;
-    String param;
+    Login param;
 
     public String getMethod() {
         return method;
@@ -13,12 +15,11 @@ public class TaskRequest {
         this.method = method;
     }
 
-    public String getParam() {
+    public Login getParam() {
         return param;
     }
 
-    public void setParam(String param) {
+    public void setParam(Login param) {
         this.param = param;
     }
-
 }

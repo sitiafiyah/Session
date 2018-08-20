@@ -11,6 +11,21 @@ public class Task implements Parcelable {
     String finishDate;
     String customer_id;
     String task_id;
+    String hardware_serialNumber;
+
+    protected Task(Parcel in) {
+        customer_name = in.readString();
+        customer_address = in.readString();
+        startDate = in.readString();
+        finishDate = in.readString();
+        customer_id = in.readString();
+        task_id = in.readString();
+        hardware_serialNumber = in.readString();
+    }
+
+    public String getHardware_serialNumber() {
+        return hardware_serialNumber;
+    }
 
     public static final Creator<Task> CREATOR = new Creator<Task>() {
         @Override
@@ -24,13 +39,8 @@ public class Task implements Parcelable {
         }
     };
 
-    protected Task(Parcel in) {
-        customer_name = in.readString();
-        customer_address = in.readString();
-        startDate = in.readString();
-        finishDate = in.readString();
-        customer_id = in.readString();
-        task_id = in.readString();
+    public void setHardware_serialNumber(String hardware_serialNumber) {
+        this.hardware_serialNumber = hardware_serialNumber;
     }
 
     public String getCustomer_name() {
@@ -94,5 +104,6 @@ public class Task implements Parcelable {
         dest.writeString(finishDate);
         dest.writeString(customer_id);
         dest.writeString(task_id);
+        dest.writeString(hardware_serialNumber);
     }
 }

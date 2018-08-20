@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (response.body().getStatus().equalsIgnoreCase("success")) {
                     //User user = new User();
-                    Log.d("username", "username" + login.getUsername());
+                    //Log.d("username", "username" + login.getUsername());
                     Toast.makeText(getApplicationContext(), "Welcome " + login.getUsername(), Toast.LENGTH_SHORT).show();
 
                     sessionUtil.saveLogin(login.getUsername(), login.getPassword());
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 //progressBar.setVisibility(View.INVISIBLE);
-                Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Your username or password invalid", Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
             }
         });

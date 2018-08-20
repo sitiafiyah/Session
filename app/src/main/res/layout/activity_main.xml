@@ -77,7 +77,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="#355989"
-                android:text="LOGIN" />
+                android:text="LOGIN"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 

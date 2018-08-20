@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.siti.asyst.session.R;
 import com.siti.asyst.session.model.Task;
+import com.siti.asyst.session.utility.DateUtils;
 
 import java.util.ArrayList;
 
@@ -40,9 +41,22 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
         holder.nameTV.setText(task.getCustomer_name());
         holder.addressTV.setText(task.getCustomer_address());
-        holder.startTV.setText(task.getStartDate());
-        holder.finishTV.setText(task.getFinishDate());
-        holder.customerIDTV.setText(task.getCustomer_id());
+        if (task.getStartDate() != null) {
+            holder.startTV.setText(DateUtils.formatDate("yyyy-MM-dd", "EEEE, dd MMMM yyyy", task.getStartDate()));
+        } else {
+            holder.startTV.setText("-");
+        }
+
+        if (task.getFinishDate() != null) {
+            holder.finishTV.setVisibility(View.VISIBLE);
+            holder.finishTV.setText("Selesai pada " + DateUtils.formatDate("yyyy-MM-dd", "dd MMMM yyyy", task.getFinishDate()));
+        } else {
+            //holder.finishTV.setText("-");
+            holder.finishTV.setVisibility(View.GONE);
+        }
+        //holder.startTV.setText(task.getStartDate());
+        //holder.finishTV.setText(task.getFinishDate());
+        holder.customerIDTV.setText("#" + task.getCustomer_id());
         holder.taskIDTV.setText(task.getTask_id());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
